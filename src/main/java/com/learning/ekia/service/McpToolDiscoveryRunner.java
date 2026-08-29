@@ -6,9 +6,9 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 @Slf4j
-@Order(Ordered.HIGHEST_PRECEDENCE)
+//@Order(Ordered.HIGHEST_PRECEDENCE)
 public class McpToolDiscoveryRunner implements CommandLineRunner {
 
     private final McpToolDiscoveryService discoveryService;

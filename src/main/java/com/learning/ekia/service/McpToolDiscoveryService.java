@@ -26,13 +26,15 @@ public class McpToolDiscoveryService {
 
         for (ToolCallback toolCallback : toolCallbacks) {
 
-            String toolName = toolCallback.getToolDefinition().name();
+            var definition = toolCallback.getToolDefinition();
+            String toolName = definition.name();
 
-            String description = toolCallback.getToolDefinition().description();
+            String description = definition.description();
 
             log.info("Discovered MCP tool: {}", toolName);
 
             log.info("Description: {}", description);
+            log.info("Input Schema: {}", definition.inputSchema());
 
             toolRegistry.register(toolCallback);
         }

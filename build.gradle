@@ -22,15 +22,47 @@ ext {
 }
 
 dependencies {
+	// ================================
+	// SPRING BOOT
+	// ================================
+
 	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+
+	// ================================
+	// MCP CLIENT
+	// ================================
+
 	implementation 'org.springframework.ai:spring-ai-starter-mcp-client'
 
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
-	testCompileOnly 'org.projectlombok:lombok'
-	testAnnotationProcessor 'org.projectlombok:lombok'
+	// ================================
+	// LLM - OPENAI COMPATIBLE
+	// Used for OpenRouter
+	// ================================
 
-	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
+	implementation 'org.springframework.ai:spring-ai-starter-model-openai'
+
+	// ================================
+	// LOMBOK
+	// ================================
+
+	compileOnly 'org.projectlombok:lombok'
+
+	annotationProcessor 'org.projectlombok:lombok'
+
+
+	// ================================
+	// TEST
+	// ================================
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
 }
 

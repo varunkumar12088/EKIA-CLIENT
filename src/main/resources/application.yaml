@@ -16,8 +16,36 @@ spring:
             ekia-server:
               url: http://localhost:8081
               endpoint: /mcp
-
+    openai:
+      base-url: https://openrouter.ai/api/v1
+      api-key: ${OPENROUTER_API_KEY}
+      chat:
+        options:
+          model: minimax/minimax-m3:free
 server:
   port: 8080
 
 #debug: true
+
+app:
+  environment: local
+  ai:
+    openrouter:
+      model: nvidia/nemotron-3-ultra-550b-a55b:free
+      temperature: 0.2
+      max-tokens: 2000
+    gemini:
+      model: gemini-3.1-flash-image
+      temperature: 0.2
+      max-tokens: 2000
+    embedding:
+      provider: future-provider
+      model: future-embedding-model
+      batch-size: 100
+  retry:
+    max-attempts: 3
+    initial-backoff: 1s
+    max-backoff: 10s
+  timeout:
+    llm: 30s
+    mcp: 10s
