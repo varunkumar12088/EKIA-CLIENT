@@ -44,8 +44,20 @@ app:
       batch-size: 100
   retry:
     max-attempts: 3
-    initial-backoff: 1s
-    max-backoff: 10s
+    initial-interval: 1000
+    max-interval: 10000
+    multiplier: 2
   timeout:
     llm: 30s
     mcp: 10s
+
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      llm:
+        failure-rate-threshold: 50
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        wait-duration-in-open-state: 30s
+        permitted-number-of-calls-in-half-open-state: 3

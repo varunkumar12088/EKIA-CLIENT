@@ -96,10 +96,14 @@ public record EKIAProperties(
             Integer maxAttempts,
 
             @NotNull
-            Duration initialBackoff,
+            Long initialInterval,
 
             @NotNull
-            Duration maxBackoff
+            Long maxInterval,
+
+            @NotNull
+            @Min(1)
+            Double multiplier
 
     ) {
     }
